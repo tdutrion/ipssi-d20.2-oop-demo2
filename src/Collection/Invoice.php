@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace InvoiceApp\Collection;
 
 
+use Countable;
 use InvoiceApp\Entity\Invoice as InvoiceEntity;
 use Iterator;
 use IteratorAggregate;
 
-class Invoice implements IteratorAggregate
+class Invoice implements IteratorAggregate, Countable
 {
     private $invoices;
 
@@ -21,5 +22,10 @@ class Invoice implements IteratorAggregate
     public function getIterator(): Iterator
     {
         return new \ArrayIterator($this->invoices);
+    }
+
+    public function count(): int
+    {
+        return count($this->invoices);
     }
 }

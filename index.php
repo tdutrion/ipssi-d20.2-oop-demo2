@@ -32,44 +32,49 @@ HTML;
     <body>
         <div class="container">
         <h1>Invoices</h1>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>Client details</th>
-                        <th>Total tax included</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach($invoices as $invoice): ?>
-                    <tr>
-                        <td><?= $invoice->id() ?></td>
-                        <td><?= $invoice->creationDate()->format(DateTimeInterface::ATOM) ?></td>
-                        <td><?= $invoice->status() ?></td>
-                        <td>
-                            <div>
-                                <?= $invoice->clientName() ?>
-                            </div>
-                            <address>
-                                <?= nl2br($invoice->clientAddress()) ?>
-                            </address>
-                        </td>
-                        <td><?= $invoice->total() ?></td>
-                    </tr>
-                    <?php endforeach ?>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th>ID</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>Client</th>
-                        <th>Total tax included</th>
-                    </tr>
-                </tfoot>
-            </table>
+        <?php if (count($invoices) > 0): ?>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Client details</th>
+                    <th>Total tax included</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($invoices as $invoice): ?>
+                <tr>
+                    <td><?= $invoice->id() ?></td>
+                    <td><?= $invoice->creationDate()->format(DateTimeInterface::ATOM) ?></td>
+                    <td><?= $invoice->status() ?></td>
+                    <td>
+                        <div>
+                            <?= $invoice->clientName() ?>
+                        </div>
+                        <address>
+                            <?= nl2br($invoice->clientAddress()) ?>
+                        </address>
+                    </td>
+                    <td><?= $invoice->total() ?></td>
+                </tr>
+                <?php endforeach ?>
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Client</th>
+                    <th>Total tax included</th>
+                </tr>
+            </tfoot>
+        </table>
+        <?php else: ?>
+            <p>Nothing to display, we've got no record yet.</p>
+        <?php endif ?>
         </div>
     </body>
 </html>
