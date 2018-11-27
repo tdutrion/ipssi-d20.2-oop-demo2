@@ -2,12 +2,23 @@
 
 require __DIR__.'/vendor/autoload.php';
 
-use InvoiceApp\Entity\Invoice;
-
 try {
-    $invoices = require 'invoices-factory.php';
+    $repository = new \InvoiceApp\Repository\Invoice();
+    $invoices = $repository->findAll();
 }catch (Throwable $exception) {
-    echo '<!Doctype html><html lang="en"><head><meta charset="UTF-8"><title>Fatal error</title></head><body><h1>Ooops: Something went wrong!</h1></body></html>';
+    echo <<<HTML
+<!Doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Fatal error</title>
+    </head>
+    <body>
+        <h1>Ooops: Something went wrong!</h1>
+        <p>{$exception->getMessage()}</p>
+    </body>
+</html>
+HTML;
     exit;
 }
 ?>
@@ -32,7 +43,7 @@ try {
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($invoices as $invoice): /* @var $invoice Invoice */ ?>
+                    <?php foreach($invoices as $invoice): ?>
                     <tr>
                         <td><?= $invoice->id() ?></td>
                         <td><?= $invoice->creationDate()->format(DateTimeInterface::ATOM) ?></td>
