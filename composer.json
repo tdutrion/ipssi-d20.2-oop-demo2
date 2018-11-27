@@ -2,7 +2,8 @@
     "name": "ipssi/oop-demo2",
     "type": "project",
     "require": {
-        "psr/http-message": "^1.0"
+        "psr/http-message": "^1.0",
+        "zendframework/zend-diactoros": "^2.0"
     },
     "autoload": {
         "psr-4": {
