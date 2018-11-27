@@ -1,0 +1,10 @@
+{
+    "name": "ipssi/oop-demo2",
+    "type": "project",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+	    "InvoiceApp\\": "src/"
+	}
+    }
+}
