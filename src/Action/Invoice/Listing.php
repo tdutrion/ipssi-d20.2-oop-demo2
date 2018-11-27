@@ -12,7 +12,7 @@ class Listing
 {
     private $repository;
 
-    public function __construct(\InvoiceApp\Repository\Invoice $repository)
+    public function __construct(\InvoiceApp\Repository\Invoice\Behavior\Listing $repository)
     {
         $this->repository = $repository;
     }

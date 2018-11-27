@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace InvoiceApp\Repository;
+namespace InvoiceApp\Repository\Invoice;
 
 use InvoiceApp\Collection\Invoice as InvoiceCollection;
 use InvoiceApp\Entity\Customer;
@@ -13,7 +13,7 @@ use InvoiceApp\ValueObject\Customer\Uuid as UuidCustomer;
 use InvoiceApp\ValueObject\Invoice\TotalPriceTaxIncluded;
 use InvoiceApp\ValueObject\Invoice\Uuid;
 
-class Invoice
+class InMemory implements Invoice
 {
     private $collection;
 

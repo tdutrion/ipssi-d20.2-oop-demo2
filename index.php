@@ -4,9 +4,10 @@ use Zend\Diactoros\ServerRequestFactory;
 
 require __DIR__.'/vendor/autoload.php';
 
-$request = ServerRequestFactory::fromGlobals();
+//$request = ServerRequestFactory::fromGlobals();
+$request = \GuzzleHttp\Psr7\ServerRequest::fromGlobals();
 
-$repository = new \InvoiceApp\Repository\Invoice();
+$repository = new \InvoiceApp\Repository\Invoice\InMemory();
 $action = new \InvoiceApp\Action\Invoice\Listing($repository);
 $response = $action->handle($request);
 
