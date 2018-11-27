@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace InvoiceApp\Collection;
 
-
 use Countable;
 use InvoiceApp\Entity\Invoice as InvoiceEntity;
 use Iterator;

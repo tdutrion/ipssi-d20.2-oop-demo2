@@ -1,7 +1,9 @@
 {
     "name": "ipssi/oop-demo2",
     "type": "project",
-    "require": {},
+    "require": {
+        "psr/http-message": "^1.0"
+    },
     "autoload": {
         "psr-4": {
 	    "InvoiceApp\\": "src/"
