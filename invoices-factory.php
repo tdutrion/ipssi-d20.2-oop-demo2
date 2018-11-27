@@ -11,7 +11,7 @@ use InvoiceApp\ValueObject\Invoice\Uuid as InvoiceUuid;
 return [
     new Invoice(
         new InvoiceUuid(1),
-        new Customer(new CustomerUuid(1), new Name('Customer 1'), new Address('Somewhere; SomewhereLand')),
+        new Customer(new CustomerUuid(1), new Name('Customer 1'), new Address('Somewhere, SomewhereLand')),
         new TotalPriceTaxIncluded(10.0)
     ),
 ];
