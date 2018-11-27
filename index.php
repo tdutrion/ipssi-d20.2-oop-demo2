@@ -2,22 +2,10 @@
 
 require __DIR__.'/vendor/autoload.php';
 
-use InvoiceApp\Entity\Customer;
 use InvoiceApp\Entity\Invoice;
-use InvoiceApp\ValueObject\Customer\Address;
-use InvoiceApp\ValueObject\Customer\Name;
-use InvoiceApp\ValueObject\Customer\Uuid as CustomerUuid;
-use InvoiceApp\ValueObject\Invoice\TotalPriceTaxIncluded;
-use InvoiceApp\ValueObject\Invoice\Uuid as InvoiceUuid;
 
 try {
-    $invoices = [
-        new Invoice(
-            new InvoiceUuid(1),
-            new Customer(new CustomerUuid(1), new Name('Customer 1'), new Address('Somewhere; SomewhereLand')),
-            new TotalPriceTaxIncluded(10.0)
-        ),
-    ];
+    $invoices = require 'invoices-factory.php';
 }catch (Throwable $exception) {
     echo '<!Doctype html><html lang="en"><head><meta charset="UTF-8"><title>Fatal error</title></head><body><h1>Ooops: Something went wrong!</h1></body></html>';
     exit;
