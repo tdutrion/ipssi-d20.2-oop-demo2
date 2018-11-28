@@ -21,7 +21,7 @@ class Listing
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         ob_start();
-        $name = $request->getQueryParams()['name'];
+        $name = $request->getQueryParams()['name'] ?? null;
         $invoices = $this->repository->findAll();
         require __DIR__.'/../../../templates/invoice/listing.php';
         $content = ob_get_clean();
