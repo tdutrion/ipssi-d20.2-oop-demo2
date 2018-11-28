@@ -1,5 +1,13 @@
 # OOP Training project
 
+## Database configuration
+
+```
+cp config/database.local.php.dist config/database.local.php
+```
+
+Then edit `config/database.local.php` and set your own variables, or remove the key to enable the global configuration.
+
 ## Glossary
 
 * attribute
