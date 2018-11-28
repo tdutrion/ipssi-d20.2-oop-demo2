@@ -1,20 +1,18 @@
 <?php
 
-use InvoiceApp\Persistence\DbConnection;
-use InvoiceApp\Repository\Invoice\InDatabase;
-use InvoiceApp\Repository\Invoice\InMemory;
-use Zend\Diactoros\ServerRequestFactory;
+use GuzzleHttp\Psr7\ServerRequest;
+use InvoiceApp\Action\Invoice\Listing;
+use InvoiceApp\DependencyInjection\Container;
 
 require __DIR__.'/vendor/autoload.php';
 
 //$request = ServerRequestFactory::fromGlobals();
-$request = \GuzzleHttp\Psr7\ServerRequest::fromGlobals();
+$request = ServerRequest::fromGlobals();
 
-//$repository = new InMemory();
-$repository = new InDatabase(
-    new DbConnection('127.0.0.1', 'root', 'root', 'invoiceapp')
-);
-$action = new \InvoiceApp\Action\Invoice\Listing($repository);
+$container = new Container(require __DIR__.'/config/container.php');
+
+/* @var $action Listing */
+$action = $container->get(Listing::class);
 $response = $action->handle($request);
 
 foreach ($response->getHeaders() as $key => $value) {

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace InvoiceApp\Action\Invoice;
 
+use InvoiceApp\Repository\Invoice\Behavior\Listing as InvoiceListingBehavior;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Zend\Diactoros\Response;
@@ -12,7 +13,7 @@ class Listing
 {
     private $repository;
 
-    public function __construct(\InvoiceApp\Repository\Invoice\Behavior\Listing $repository)
+    public function __construct(InvoiceListingBehavior $repository)
     {
         $this->repository = $repository;
     }

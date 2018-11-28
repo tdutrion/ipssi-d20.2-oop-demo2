@@ -34,11 +34,11 @@ class InMemory implements Invoice
         return $this->collection;
     }
 
-    public function find(Uuid $uuid): ?InvoiceEntity
+    public function find(Uuid $identifier): ?InvoiceEntity
     {
-        if (!isset($this->collection[$uuid->toString()])) {
+        if (!isset($this->collection[$identifier->toString()])) {
             return null;
         }
-        return $this->collection[$uuid->toString()];
+        return $this->collection[$identifier->toString()];
     }
 }
