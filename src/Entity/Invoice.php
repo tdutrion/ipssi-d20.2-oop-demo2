@@ -12,24 +12,24 @@ use InvoiceApp\ValueObject\Invoice\Uuid;
 
 final class Invoice
 {
-    private $uuid;
+    private $identifier;
     private $date;
     private $status;
     private $customer;
     private $total;
 
-    public function __construct(Uuid $uuid, Customer $customer, TotalPriceTaxIncluded $total)
+    public function __construct(Uuid $identifier, Customer $customer, TotalPriceTaxIncluded $total)
     {
-        $this->uuid = $uuid;
+        $this->identifier = $identifier;
         $this->date = new DateTimeImmutable();
         $this->status = new Status(Status::INITIALIZED);
         $this->customer = $customer;
         $this->total = $total;
     }
 
-    public function id(): string
+    public function identifier(): string
     {
-        return $this->uuid->toString();
+        return $this->identifier->toString();
     }
 
     public function creationDate(): DateTimeInterface

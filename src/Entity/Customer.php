@@ -10,20 +10,20 @@ use InvoiceApp\ValueObject\Customer\Uuid;
 
 final class Customer
 {
-    private $uuid;
+    private $identifier;
     private $name;
     private $address;
 
-    public function __construct(Uuid $id, Name $name, Address $address)
+    public function __construct(Uuid $identifier, Name $name, Address $address)
     {
-        $this->uuid = $id;
+        $this->identifier = $identifier;
         $this->name = $name;
         $this->address = $address;
     }
 
-    public function id(): Uuid
+    public function identifier(): Uuid
     {
-        return $this->uuid;
+        return $this->identifier;
     }
 
     public function clientName(): string

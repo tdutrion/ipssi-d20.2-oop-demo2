@@ -25,7 +25,7 @@ class InMemory implements Invoice
             new TotalPriceTaxIncluded(10.0)
         );
         $this->collection = new InvoiceCollection(...[
-            $invoice->id() => $invoice,
+            $invoice->identifier() => $invoice,
         ]);
     }
 

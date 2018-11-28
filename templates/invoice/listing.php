@@ -23,7 +23,7 @@
                     <tbody>
                     <?php foreach($invoices as $invoice): /* @var $invoice \InvoiceApp\Entity\Invoice */ ?>
                         <tr>
-                            <td><?= $invoice->id() ?></td>
+                            <td><?= $invoice->identifier() ?></td>
                             <td><?= $invoice->creationDate()->format(DateTimeInterface::ATOM) ?></td>
                             <td><?= $invoice->status() ?></td>
                             <td>

@@ -6,15 +6,15 @@ namespace InvoiceApp\ValueObject\Customer;
 
 final class Uuid
 {
-    private $id;
+    private $identifier;
 
-    public function __construct(int $id)
+    public function __construct(int $identifier)
     {
-        $this->id = $id;
+        $this->identifier = $identifier;
     }
 
     public function toString(): string
     {
-        return (string) $this->id;
+        return (string) $this->identifier;
     }
 }

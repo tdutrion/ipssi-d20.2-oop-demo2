@@ -11,5 +11,8 @@
         "psr-4": {
 	    "InvoiceApp\\": "src/"
 	}
+    },
+    "require-dev": {
+        "phpmd/phpmd": "^2.6"
     }
 }
