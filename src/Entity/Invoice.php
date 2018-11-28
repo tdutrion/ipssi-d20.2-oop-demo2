@@ -55,6 +55,6 @@ final class Invoice
 
     public function total(): string
     {
-        return (string) 10.0;
+        return number_format($this->total->toFloat(), 2);
     }
 }
