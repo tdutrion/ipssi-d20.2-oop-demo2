@@ -1,6 +1,8 @@
 # OOP Training project
 
-## Database configuration
+## How to run the project
+
+### Configuration
 
 ```
 cp config/database.local.php.dist config/database.local.php
@@ -8,25 +10,43 @@ cp config/database.local.php.dist config/database.local.php
 
 Then edit `config/database.local.php` and set your own variables, or remove the key to enable the global configuration.
 
+### Serveur PHP
+
+Either you can use a local server or the PHP integrated development server.
+
+Using the latter, run the following command (given your port 8888 is free):
+
+```
+php -S localhost:8888
+```
+
+Then visit `http://localhost:8888`.
+
+### Database
+
+You'll need a mysql 5.7 database to run the project. Data are located in `resources/env/local/fixtures`.
+
 ## Glossary
 
-* attribute
-* autoloading
-* behaviour/behavior
-* class
-* encapsulation
-* entity
-* instance
-* member variable
-* method
-* namespace
-* new keyword
-* object
-* property
-* value object
-* visibility
-* state
-* PSR
+* attribute: variable located inside a class that stores a part of the state of that class. It is sometimes used in place of the property (see definition), but while the property is a collaborator, the attribute is a part of the definition of the class.
+* collaborator: object that interacts with another object in order to produce a given result.
+* autoloading: in an interpreted language where there is no compilation nor assembly, classes are not referenced in a single location, hence the need for a method allowing the retrieval of the definition of the class. The autoloading is therefore the mechanism used to retrieve said classes.
+* behaviour/behavior: description of a characteristic or an intention of an object. Formalised with `interface` in most languages.
+* class: structure made of attributes, properties and methods.
+* method: function contained in a class, implementation of behaviour.
+* encapsulation: ability for an object not to disclose its actual state nor the actual underlying implementation of the characteristics on which the behaviour exposed is based.
+* entity: object with a lifetime, which evolves and represents an element of the business/the domain. It has a unique identifier, and equality is defined by comparing this identifier.
+* instance: variable resulting from the creation of an object of a given class.
+* member variable: attribute or property
+* method: function in a class.
+* namespace: an abstract container or environment created to hold a logical grouping of unique identifiers or symbols (i.e. names). Very useful for using short contextualised names and to explicit naming.
+* new keyword: keyword to allow the creation of a new instance of a class.
+* object: instance of class.
+* property: member variable that refers to a third party attribute, act as a owning side of a relation.
+* value object: object for which the sole purpose it to store a value after having validated it, and then expose it back.
+* visibility (private, protected, public): defines who can access a structure's content.
+* state: current value of an element.
+* PSR: 
 * PHP-FIG
 * static
 * scope
@@ -51,6 +71,17 @@ Then edit `config/database.local.php` and set your own variables, or remove the 
 * dependency injection container
 * relations
 * aggregation
+
+
+## Exemple
+
+A `Character` has a `force` and a `sword`, and is able to `fight`.
+
+The class is `Character`, the `force` is an attribute, the `sword` is a property and `fight` is a method.
+
+Considering `$character1 = new Character()`, `$character1` is a variable containing an `instance` of the class `Character`. The value of the variable `$character1` is therefore an `object`.
+
+Adding `$character2 = new Character()`, the value of the variable `$character2` is another `instance` of the class `Character`.
 
 ## Syntax basics
 
