@@ -6,6 +6,8 @@ use InvoiceApp\DependencyInjection\Container;
 
 require __DIR__.'/vendor/autoload.php';
 
+chdir(__DIR__);
+
 //$request = ServerRequestFactory::fromGlobals();
 $request = ServerRequest::fromGlobals();
 
